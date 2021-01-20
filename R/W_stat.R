@@ -14,6 +14,10 @@
 #' @examples
 #' W_stat(n=5, test_stat = 3, side = 'leq')
 #' @export
+#'
+#'
+
+Sys.setenv('_R_CHECK_SYSTEM_CLOCK_' = 0)
 
 W_stat = function(n, test_stat , side = c('geq','leq','eq')){
   mat = expand.grid(rep(list(c(-1,1)),(n)))
