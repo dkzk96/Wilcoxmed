@@ -1,6 +1,6 @@
 Package: wilcoxmed
 Title: Computes values for the 1-Sample Wilcoxon Sign Rank Test for Medians
-Version: 0.0.0.9000
+Version: 0.0.1
 Date: 2021-01-20
 Authors@R: 
     c(person(given = "Dion",
