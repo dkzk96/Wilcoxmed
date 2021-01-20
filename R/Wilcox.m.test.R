@@ -16,22 +16,21 @@
 #' @return Prints out the results of the tests, and returns 3 values- test statistic,
 #' p-value, and the significance level of the test, alpha
 #' @examples
-#' Given some data: 3, 4, 7, 10, 4, 12, 1, 9, 2, 15
-#' If we want to test the hypotheses H_0: m=5 against H_1: m>5
-#' without using normal approximation:
+#' ##Given some data: 3, 4, 7, 10, 4, 12, 1, 9, 2, 15
+#' ##If we want to test the hypotheses H_0: m=5 against H_1: m>5
+#' ##without using normal approximation:
 #' vec = c(3, 4, 7, 10, 4, 12, 1, 9, 2, 15)
 #' res = Wilcox.m.test(dat = vec, m_h0 = 5,
-#' alternative = 'greater', normal_approx = F)
+#' alternative = 'greater', normal_approx = FALSE)
 #'
-#' If we want to apply the normal approximation(Z-test), with the same hypotheses:
+#' ##If we want to apply the normal approximation(Z-test), with the same hypotheses:
 #' res = Wilcox.m.test(dat = vec, m_h0 = 5,
-#' alternative = 'greater', normal_approx = T)
+#' alternative = 'greater', normal_approx = TRUE)
 #' @details This hypothesis test allows breaking of ties, and the number of
 #' ties broken is also reflected in the printed results.
 #' @seealso Wilcox.test() for the same tests applied to 2 sample problems
 #' but is not able to break ties
 #' @export
-
 
 Wilcox.m.test <- function(dat, m_h0 ,alpha = 0.05,
                           alternative=c('greater', 'lesser', 'noteq'),
@@ -104,7 +103,7 @@ Wilcox.m.test <- function(dat, m_h0 ,alpha = 0.05,
     SDW <- sqrt(n*(n+1)*(2*n+1)/24)
     Z_stat  <- (W_obs - EW)/SDW
     if(alternative == 'greater'){
-      p_value <- pnorm(Z_stat, lower.tail = F)
+      p_value <- stats::pnorm(Z_stat, lower.tail = F)
       cat('\n', rep('', floor((console_length-60)/2)),
           ' 1-Sample Median Wilcoxon Sign-Rank Test - Normal Approximation', '\n','\n',
           rep('', floor((console_length-10)/2)), 'Ties Broken =', ties, '\n','\n',
@@ -122,7 +121,7 @@ Wilcox.m.test <- function(dat, m_h0 ,alpha = 0.05,
                'Test Result: Do not Reject H_0' , '\n','\n')}
     }
     else if(alternative == 'lesser'){
-      p_value <- pnorm(Z_stat, lower.tail = T)
+      p_value <- stats::pnorm(Z_stat, lower.tail = T)
       cat('\n', rep('', floor((console_length-60)/2)),
           ' 1-Sample Median Wilcoxon Sign-Rank Test - Normal Approximation', '\n','\n',
           rep('', floor((console_length-10)/2)), 'Ties Broken =', ties, '\n','\n',
@@ -140,7 +139,7 @@ Wilcox.m.test <- function(dat, m_h0 ,alpha = 0.05,
                'Test Result: Do not Reject H_0' , '\n','\n')}
     }
     else if(alternative == 'noteq'){
-      p_value <- min(2*pnorm(Z_stat, lower.tail = T),1)
+      p_value <- min(2*stats::pnorm(Z_stat, lower.tail = T),1)
       cat('\n', rep('', floor((console_length-60)/2)),
           ' 1-Sample Median Wilcoxon Sign-Rank Test - Normal Approximation', '\n','\n',
           rep('', floor((console_length-10)/2)), 'Ties Broken =', ties, '\n','\n',
