@@ -31,6 +31,8 @@
 #' @seealso Wilcox.test() for the same tests applied to 2 sample problems
 #' but is not able to break ties
 #' @export
+#'
+Sys.setenv('_R_CHECK_SYSTEM_CLOCK_' = 0)
 
 Wilcox.m.test <- function(dat, m_h0 ,alpha = 0.05,
                           alternative=c('greater', 'lesser', 'noteq'),
