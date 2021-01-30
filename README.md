@@ -49,4 +49,4 @@ To find <img src="https://render.githubusercontent.com/render/math?math=P(W\leq3
 
 W_stat(n=5, test_stat = 3, side = 'leq')
 
-<img src="/badges/version/wilcoxmed">
+<img src="https://www.rdocumentation.org/badges/version/wilcoxmed">
