@@ -1,4 +1,4 @@
-# Wilcoxmed package
+# Wilcoxmed package <img src="https://www.rdocumentation.org/badges/version/wilcoxmed">
 The Implementation of the 1-Sample Wilcoxon Signed Rank Hypothesis Test for medians - allows breaking of ties, computation of the Wilcoxon Test Statistic with normal approximations.
 
 We refer to the Wilcoxon Sign Ranked hypothesis test for medians for the one-sample problem.
@@ -49,4 +49,4 @@ To find <img src="https://render.githubusercontent.com/render/math?math=P(W\leq3
 
 W_stat(n=5, test_stat = 3, side = 'leq')
 
-<img src="https://www.rdocumentation.org/badges/version/wilcoxmed">
+
