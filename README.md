@@ -48,3 +48,5 @@ alternative = 'greater', normal_approx = T)
 To find <img src="https://render.githubusercontent.com/render/math?math=P(W\leq3)"> for <img src="https://render.githubusercontent.com/render/math?math=n=5">:
 
 W_stat(n=5, test_stat = 3, side = 'leq')
+
+<img src="/badges/version/wilcoxmed">
